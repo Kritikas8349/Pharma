@@ -232,6 +232,16 @@
     .title {
       font-size: 32px;
     }
+
+    .title span{
+        font-size: 30px;
+      }
+
+
+      .btn.secondary{
+        background: #2ecc71;
+        color: white;
+      }
   }
   
   /* MOBILE */
@@ -244,19 +254,31 @@
       font-size: 26px;
     }
 
+    .title span{
+        font-size: 24px;
+      }
+
     .home__content {
         max-width: 480px;
-        margin-bottom: 150px;
+        margin-bottom: 170px;
       }
   
     .subtitle {
       font-size: 14px;
     }
   
-    .btn {
-      width: 70%;
-      text-align: center;
-    }
+    .home__buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: nowrap;   /* side by side */
+      }
+    
+      .btn {
+        flex: 1;           /* equal size */
+        width: auto;
+        font-size: 13px;
+        padding: 10px;
+      }
   }
 
 
