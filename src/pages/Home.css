@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
 /* RESET SAFETY */
@@ -93,8 +93,9 @@
   }
   
   .title span {
+    font-size: 46px;
     color: #0d7142;
-    font-weight: 500;
+    font-weight: 700;
   }
   
   /* SUBTITLE */
@@ -243,6 +244,11 @@
     .title {
       font-size: 26px;
     }
+
+    .home__content {
+        max-width: 480px;
+        margin-bottom: 150px;
+      }
   
     .subtitle {
       font-size: 14px;
