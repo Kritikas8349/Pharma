@@ -699,6 +699,10 @@
     .about-right h2 {
       font-size: 26px;
     }
+
+    .card-user h4{
+        text-align: start;
+    }
   }
   
   /* MOBILE */
@@ -749,9 +753,13 @@
     .about-desc {
       font-size: 14px;
     }
+
+    .about-list {
+        text-align: start;
+    }
   
     .about-stats {
-      flex-direction: column;
+      flex-direction: row;
       gap: 8px;
     }
   
