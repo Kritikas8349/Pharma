@@ -1,23 +1,76 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 import logo from "../assets/logo_novajoy.png";
 
 const Navbar = () => {
+
+  
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
+
+  const navRef = useRef(); // 👈 for outside click
 
   const toggleMenu = () => {
+    
     setMenuOpen((prev) => !prev);
   };
 
   const handleLinkClick = (item) => {
     setActive(item);
-    setMenuOpen(false); // close menu after click
+    setMenuOpen(false);
+  
+    // HOME scroll top
+    if (item === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+  
+    // SAFE SCROLL
+    const section = document.getElementById(item);
+  
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
-  return (
-    <nav className="navbar">
+  // ✅ SCROLL + AUTO CLOSE
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
 
+      // close menu on scroll
+      if (menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [menuOpen]);
+
+  // ✅ CLICK OUTSIDE CLOSE
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  
+
+  
+
+  return (
+    <nav
+      ref={navRef}
+      className={`navbar ${scrolled ? "scrolled" : ""}`}
+    >
       {/* LOGO */}
       <div className="logo">
         <img src={logo} alt="logo" />
@@ -50,7 +103,6 @@ const Navbar = () => {
         <span></span>
         <span></span>
       </div>
-
     </nav>
   );
 };

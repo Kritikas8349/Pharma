@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Navbar from './components/Navbar';
-import Hero from './pages/Hero';
+import Footer from './components/Footer';
+import Home from './pages/Home';
 
 function App() {
 
@@ -13,13 +14,13 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Hero />} />
+        <Route path="/" element={<Home />} />
         {/* <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />}/>
         <Route path="/contact" element={<Contact />}/> */}
         
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </BrowserRouter>
     </>
   )
