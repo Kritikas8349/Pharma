@@ -18,11 +18,13 @@
     padding: 12px 40px;
     z-index: 1000;
   
-    /* GLASS EFFECT */
-    background: white;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
- 
+    /* TRANSPARENT GLASS EFFECT */
+    background: rgba(255, 255, 255, 0.15); /* light transparent */
+    /* backdrop-filter: blur(12px); */
+    /* -webkit-backdrop-filter: blur(12px); */
+  
+    /* OPTIONAL: subtle border for glass feel */
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
   }
   
   /* LOGO */
@@ -120,8 +122,13 @@
   @media (max-width: 768px) {
 
     .navbar {
-      padding: 0 20px;
+      padding: 10px 20px;
     }
+
+    .logo img {
+      height: 80px;
+      object-fit: contain;
+  }
   
     /* SMALL DROPDOWN MENU */
     .nav-links {
