@@ -87,13 +87,12 @@
   
   /* TITLE */
   .title {
-    font-size: 54px;
+    font-size: 46px;
     font-weight: 700;
     line-height: 1.2;
   }
   
   .title span {
-    font-size: 46px;
     color: #0d7142;
     font-weight: 700;
   }
