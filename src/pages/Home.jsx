@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import "./Home.css";
 import { FaUserCircle } from "react-icons/fa";
+import { FaCheckCircle, FaFlask, FaCertificate } from "react-icons/fa";
+import { GiMedicines } from "react-icons/gi";
+import { FaHandshake } from "react-icons/fa";
+
+import { FaCapsules, FaBullhorn, FaAward, FaChartLine } from "react-icons/fa";
 
 import deal1 from "../assets/deal1.png";
 import deal2 from "../assets/deal2.png";
@@ -11,104 +16,112 @@ import banner1 from "../assets/banner1.png";
 import banner2 from "../assets/banner2.png";
 import banner3 from "../assets/banner3.png";
 
-import founder from "../assets/founder.png";
 import about from "../assets/about.png";
+
+import lab from "../assets/lab.jpg";
+
+import pharmaImg from "../assets/franchise.png";
 
 
 const texts = [
-    "Your Wellness. Our Joy.",
-    "Care That Puts You First.",
+    "Your Wellness. Our Joy in Trusted Care.",
+    "Pioneering Wellness, Delivering Excellence.",
 ];
+
 
 const data = [
     {
-        iconImg: deal1,
-        title: "Instant Video Consultation",
-        desc: "Connect within 60 secs",
-        bg: "green",
-
-    },
-    {
-        iconImg: deal2,
-        title: "Expert Guidance",
-        desc: "Get reliable advice from experienced pharmacists at our store.",
+        title: "Gastroenterology",
+        desc: "Advanced digestive care solutions designed for effective relief.",
         bg: "light-green",
-
+        iconImg: deal1
     },
     {
-        iconImg: deal3,
-        title: "Quality Medicines",
-        desc: "Trusted and certified medicines for everyday healthcare needs.",
+        title: "Antibiotics",
+        desc: "Reliable infection management with clinically trusted formulations.",
         bg: "blue",
-
+        iconImg: deal2
     },
     {
-        iconImg: deal4,
-        title: "Community Care",
-        desc: "Serving your neighborhood with care, trust, and consistency.",
+        title: "Nutritional Supplements",
+        desc: "Holistic wellness support for daily health and vitality.",
         bg: "light-blue",
-
+        iconImg: deal3
+    },
+    {
+        title: "General Medicine",
+        desc: "Comprehensive solutions for diverse healthcare needs.",
+        bg: "green",
+        iconImg: deal4
     }
 ];
 
+
 const products = [
+    // GASTRO (4+)
     {
         id: 1,
-        name: "Turmeric & Ginger Gummies",
-        price: "$130",
+        category: "Gastroenterology",
+        name: "Rifaximin 550mg",
         img: "https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=500",
-        desc: "Boost immunity with natural ingredients.",
-        composition: [
-            "Turmeric Extract",
-            "Ginger Root Extract",
-            "Vitamin C",
-            "Zinc"
-        ],
-        dosage: "2 gummies daily",
-        pack: "60 gummies bottle",
+        desc: "Used in IBS and hepatic encephalopathy.",
+        composition: ["Rifaximin"],
+        dosage: "As prescribed",
+        pack: "10 tablets"
     },
     {
         id: 2,
-        name: "Ambrodil Plus 100 ml",
-        price: "$124",
+        category: "Gastroenterology",
+        name: "Pantoprazole 40mg",
         img: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?q=80&w=500",
-        desc: "Effective syrup for cough relief.",
-        composition: [
-            "Ambroxol Hydrochloride",
-            "Guaifenesin",
-            "Menthol"
-        ],
-        dosage: "5ml twice daily",
-        pack: "100ml bottle",
+        desc: "Acidity & GERD treatment.",
+        composition: ["Pantoprazole"],
+        dosage: "Once daily",
+        pack: "10 tablets"
     },
     {
         id: 3,
-        name: "Stobal Cough Syrup",
-        price: "$110",
+        category: "Gastroenterology",
+        name: "Lactulose Syrup",
         img: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=500",
-        desc: "Quick relief for dry cough.",
-        composition: [
-            "Dextromethorphan",
-            "Chlorpheniramine",
-            "Ammonium Chloride"
-        ],
-        dosage: "10ml twice daily",
-        pack: "100ml bottle",
+        desc: "Constipation relief.",
+        composition: ["Lactulose"],
+        dosage: "As prescribed",
+        pack: "100ml"
     },
     {
         id: 4,
-        name: "Kids Cough Crusader",
-        price: "$140",
+        category: "Gastroenterology",
+        name: "Digestive Enzyme",
         img: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=500",
-        desc: "Safe cough solution for kids.",
-        composition: [
-            "Honey Extract",
-            "Tulsi",
-            "Licorice Root"
-        ],
-        dosage: "5ml once daily",
-        pack: "60ml bottle",
+        desc: "Improves digestion.",
+        composition: ["Enzymes"],
+        dosage: "After meals",
+        pack: "60 tablets"
     },
+
+    // ADD SAME FOR OTHER CATEGORIES 👇
+    {
+        id: 5,
+        category: "Anti-Infectives",
+        name: "Amoxicillin 500mg",
+        img: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?q=80&w=500",
+        desc: "Broad-spectrum antibiotic.",
+        composition: ["Amoxicillin"],
+        dosage: "Twice daily",
+        pack: "10 capsules"
+    },
+
+    {
+        id: 6,
+        category: "Anti-Infectives",
+        name: "Azithromycin",
+        img: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=500",
+        desc: "Infection treatment.",
+        composition: ["Azithromycin"],
+        dosage: "Once daily",
+        pack: "3 tablets"
+    }
 ];
 
 
@@ -129,6 +142,7 @@ const testimonials = [
 
 const Home = () => {
     const [index, setIndex] = useState(0);
+    const [activeCategory, setActiveCategory] = useState("Gastroenterology");
     const [selected, setSelected] = useState(null);
 
     useEffect(() => {
@@ -138,6 +152,10 @@ const Home = () => {
 
         return () => clearInterval(interval);
     }, []);
+
+    const filteredProducts = products.filter(
+        (item) => item.category === activeCategory
+    );
 
     return (
         <>
@@ -160,8 +178,8 @@ const Home = () => {
                     </p>
 
                     <div className="home__buttons">
-                        <button className="btn primary">Explore Products</button>
-                        <button className="btn secondary">Get in Touch</button>
+                        <button className="btn primary">View Our Portfolio</button>
+                        <button className="btn secondary">Partner With Us</button>
                     </div>
                 </div>
             </section>
@@ -169,7 +187,15 @@ const Home = () => {
 
 
             <section className="deals">
-                <h2>Best Deals For You!</h2>
+                <h2>Our Commitment to Better Healthcare</h2>
+
+                {/* ✅ Company Overview (NEW ADDITION) */}
+                <p className="deals-intro">
+                    At Novajoy Remedies, we believe that healthcare should be accessible, reliable, and effective.
+                    Our commitment lies in delivering quality-driven pharmaceutical solutions that enhance patient
+                    well-being while maintaining the highest ethical standards. We strive to bridge the gap between
+                    innovation and affordability in modern medicine.
+                </p>
 
                 <div className="deals-container">
                     {data.map((item, i) => (
@@ -199,20 +225,10 @@ const Home = () => {
 
                 {/* LEFT */}
                 <div className="about-left">
-                    <img src={about} alt="pharma expert" />
+                    <img src={about} alt="Novajoy Remedies" />
 
                     <div className="about-card">
-                        <p>Successfully delivering trusted medicines across India</p>
-
-                        <div className="card-user">
-                            <div className="avatar">
-                                <img src={founder} alt="Narendra Singh" />
-                            </div>
-                            <div>
-                                <h4>Mr. Narendra Singh</h4>
-                                <span>Founder, Novajoy Remedies</span>
-                            </div>
-                        </div>
+                        <p>Built on trust, research, and dedication to healthcare excellence</p>
                     </div>
                 </div>
 
@@ -222,45 +238,41 @@ const Home = () => {
                     <span className="about-tag">ABOUT NOVAJOY</span>
 
                     <h2>
-                        Trusted Medicines Delivered <br />
-                        Right To Your Doorstep
+                        Innovating Healthcare <br />
+                        With Trust & Excellence
                     </h2>
 
+                    {/* 🔷 OUR STORY */}
                     <p className="about-desc">
-                        Novajoy Remedies was founded by Mr. Narendra Singh with a vision to
-                        simplify healthcare access by delivering genuine and affordable
-                        medicines directly to homes. We aim to bridge the gap between
-                        quality healthcare and everyday convenience.
+                        Novajoy Remedies was founded with a vision to combine <strong>“Joy” and “Innovation”</strong> in healthcare.
+                        From its inception, the company has focused on developing reliable and effective pharmaceutical products
+                        that bring a positive impact to patients' lives.
                     </p>
 
                     <p className="about-desc">
-                        With a strong focus on quality assurance and customer trust, we
-                        ensure that every product meets certified standards while making
-                        healthcare accessible to every household.
+                        With a strong foundation built on trust, research, and dedication, Novajoy continues to grow as a brand
+                        committed to delivering excellence in healthcare.
                     </p>
 
-                    {/* FEATURES */}
-                    <ul className="about-list">
-                        <li>100% genuine & certified medicines</li>
-                        <li>Fast and reliable home delivery service</li>
-                        <li>Affordable pricing with quality assurance</li>
-                        <li>Customer-first healthcare approach</li>
-                    </ul>
+                    {/* 🔷 MISSION & VISION */}
+                    <div className="about-mv">
 
-                    {/* STATS */}
-                    <div className="about-stats">
-                        <div>
-                            <h3>10K+</h3>
-                            <span>Happy Customers</span>
+                        <div className="mv-box">
+                            <h4>Our Mission</h4>
+                            <p>
+                                To make advanced healthcare affordable and accessible to every individual by delivering
+                                high-quality pharmaceutical products.
+                            </p>
                         </div>
-                        <div>
-                            <h3>500+</h3>
-                            <span>Products Delivered</span>
+
+                        <div className="mv-box">
+                            <h4>Our Vision</h4>
+                            <p>
+                                To become a leading name in the Indian pharmaceutical industry through innovation,
+                                research-driven formulations, and customer trust.
+                            </p>
                         </div>
-                        <div>
-                            <h3>24/7</h3>
-                            <span>Support</span>
-                        </div>
+
                     </div>
 
                     <button className="about-btn">Learn More</button>
@@ -271,28 +283,49 @@ const Home = () => {
 
 
 
-
             <section className="products" id="products">
-                <h2>Trending Product For You!</h2>
 
-                <div className="product-container">
-                    {products.map((item) => (
-                        <div className="product-card" key={item.id}>
-                            <img src={item.img} alt={item.name} />
+                <h2>Product Portfolio – Clinical Excellence</h2>
 
-                            <h4>{item.name}</h4>
-                            <p className="price">{item.price}</p>
-
-                            <button onClick={() => setSelected(item)}>
-                                Learn More
-                            </button>
-                        </div>
+                {/* 🔷 CATEGORY TABS */}
+                <div className="category-tabs">
+                    {["Gastroenterology", "Anti-Infectives", "Steroids", "Nutraceuticals"].map((cat) => (
+                        <button
+                            key={cat}
+                            className={activeCategory === cat ? "active" : ""}
+                            onClick={() => setActiveCategory(cat)}
+                        >
+                            {cat}
+                        </button>
                     ))}
                 </div>
 
-                <button className="shop-btn">Shop All →</button>
+                {/* 🔷 PRODUCTS */}
+                <div className="product-container">
+                    {products
+                        .filter((item) => item.category === activeCategory)
+                        .slice(0, 4)
+                        .map((item) => (
+                            <div className="product-card" key={item.id}>
+                                <img src={item.img} alt={item.name} />
 
-                {/* MODAL */}
+                                <h4>{item.name}</h4>
+
+                                <button onClick={() => setSelected(item)}>
+                                    Learn More
+                                </button>
+                            </div>
+                        ))}
+                </div>
+
+                {/* 🔷 VIEW MORE BUTTON */}
+                {products.filter((item) => item.category === activeCategory).length > 4 && (
+                    <button className="view-more">
+                        View More Products →
+                    </button>
+                )}
+
+                {/* 🔷 MODAL */}
                 {selected && (
                     <div className="modal" onClick={() => setSelected(null)}>
                         <div
@@ -310,10 +343,9 @@ const Home = () => {
 
                             <div className="modal-info">
                                 <ul>
-                                    {selected.composition.map((item, index) => (
-                                        <li key={index}>{item}</li>
+                                    {selected.composition.map((c, i) => (
+                                        <li key={i}>{c}</li>
                                     ))}
-
                                     <li><strong>Dosage:</strong> {selected.dosage}</li>
                                     <li><strong>Pack Size:</strong> {selected.pack}</li>
                                     <li>WHO-GMP Certified</li>
@@ -326,7 +358,10 @@ const Home = () => {
                         </div>
                     </div>
                 )}
+
             </section>
+
+
 
             <section className="banner">
 
@@ -380,6 +415,185 @@ const Home = () => {
 
                 </div>
             </section>
+
+            <section className="quality" id="quality">
+
+                <div className="quality-wrapper">
+
+                    {/* LEFT CONTENT */}
+                    <div className="quality-left">
+
+                        <span className="quality-tag">QUALITY ASSURANCE</span>
+
+                        <h2>
+                            The Gold Standard <br />
+                            In Pharmaceutical Quality
+                        </h2>
+
+                        <p className="quality-desc">
+                            At Novajoy Remedies, quality isn't just a department; it's our DNA.
+                        </p>
+
+                        <p className="quality-desc">
+                            From sourcing raw materials to final packaging, every step follows strict
+                            international compliance protocols ensuring unmatched safety and reliability.
+                        </p>
+
+                        {/* FEATURES GRID */}
+                        <div className="quality-features">
+
+                            <div className="q-item">
+                                <FaCertificate className="q-icon" />
+                                <div>
+                                    <h4>WHO-GMP Certified</h4>
+                                    <p>Global manufacturing standards</p>
+                                </div>
+                            </div>
+
+                            <div className="q-item">
+                                <FaCheckCircle className="q-icon" />
+                                <div>
+                                    <h4>ISO Standards</h4>
+                                    <p>Strict quality assurance protocols</p>
+                                </div>
+                            </div>
+
+                            <div className="q-item">
+                                <FaFlask className="q-icon" />
+                                <div>
+                                    <h4>Lab Tested</h4>
+                                    <p>Advanced scientific validation</p>
+                                </div>
+                            </div>
+
+                            <div className="q-item">
+                                <GiMedicines className="q-icon" />
+                                <div>
+                                    <h4>Safe Formulations</h4>
+                                    <p>Effective & patient-friendly</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p className="quality-highlight">
+                            Ensuring safety, efficacy, and consistency in every product we deliver.
+                        </p>
+
+                    </div>
+
+                    {/* RIGHT VISUAL */}
+                    <div className="quality-right">
+
+                        {/* IMAGE BLOCK */}
+                        <div className="quality-image">
+                            <img src={lab} alt="Pharma Quality Lab" />
+
+                            {/* OVERLAY CONTENT */}
+                            <div className="quality-overlay">
+                                <h3>Certified Excellence</h3>
+                                <p>Delivering trust through globally approved standards</p>
+                            </div>
+                        </div>
+
+                        {/* BADGES */}
+                        <div className="quality-mini-cards">
+                            <div className="mini-card">WHO-GMP</div>
+                            <div className="mini-card">ISO</div>
+                            <div className="mini-card">LAB VERIFIED</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section className="franchise">
+
+                <div className="franchise-container">
+
+                    {/* LEFT */}
+                    <div className="franchise-left">
+                        <img src={pharmaImg} alt="Novajoy Products" />
+                    </div>
+
+                    {/* RIGHT */}
+                    <div className="franchise-right">
+
+                        <span className="f-tag">PARTNER WITH US</span>
+
+                        <h2>
+                            Franchise (PCD) <br />
+                            <span>Opportunity</span>
+                        </h2>
+
+                        <p className="desc">
+                            Join hands with Novajoy Remedies and build a successful business
+                            with a brand that stands for quality and trust.
+                        </p>
+
+                        <div className="features">
+
+                            <div className="feature">
+                                <FaCapsules />
+                                <div>
+                                    <h4>Wide Range of DCGI-Approved Products</h4>
+                                    <p>High-quality formulations across segments.</p>
+                                </div>
+                            </div>
+
+                            <div className="feature">
+                                <FaBullhorn />
+                                <div>
+                                    <h4>Strong Marketing Support</h4>
+                                    <p>Promotional materials to grow your brand.</p>
+                                </div>
+                            </div>
+
+                            <div className="feature">
+                                <FaAward />
+                                <div>
+                                    <h4>Monopoly Rights</h4>
+                                    <p>Exclusive territories for better growth.</p>
+                                </div>
+                            </div>
+
+                            <div className="feature">
+                                <FaChartLine />
+                                <div>
+                                    <h4>High Growth Potential</h4>
+                                    <p>Be part of a rapidly growing pharma sector.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {/* 🔥 CTA BAR OUTSIDE */}
+                <div className="cta-bar">
+
+                    <div className="cta-left">
+                        <div className="cta-icon">
+                            <FaHandshake />
+                        </div>
+
+                        <div>
+                            <h4>Be Our Partner. Grow Together.</h4>
+                            <p>Let’s create a healthier tomorrow, together.</p>
+                        </div>
+                    </div>
+
+                    <button className="cta-btn">JOIN NOW →</button>
+
+                </div>
+
+            </section>
+
 
             <section className="testimonials">
 
