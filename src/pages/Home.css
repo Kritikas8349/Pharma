@@ -6,6 +6,10 @@
     font-family: 'Montserrat', sans-serif;
   }
 
+  body {
+    padding-top: 20px;
+  }
+
 /* RESET SAFETY */
 
 .home {
@@ -1119,7 +1123,7 @@
     }
   
     .products h2 {
-      font-size: 24px;
+      font-size: 22px;
     }
   }
 
@@ -1529,6 +1533,10 @@
 
   .q-item h4{
     text-align: start;
+  }
+
+  .quality-left h2{
+    font-size: 22px;
   }
 }
 
