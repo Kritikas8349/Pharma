@@ -92,7 +92,7 @@ const Footer = () => {
                         {/* Address */}
                         <div className="footer__item">
                             <FaMapMarkerAlt />
-                            <span>Mumbai, Madhya Pradesh, India</span>
+                            <span>Mumbai, Maharashtra</span>
                         </div>
 
                         {/* Phone */}
