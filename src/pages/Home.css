@@ -1187,7 +1187,7 @@
   /* TEXT */
   .overlay .tagline {
     font-size: 12px;
-    color: #2ecc71;
+    color: #fff;
     margin-bottom: 6px;
   }
   
@@ -1526,6 +1526,10 @@
   .quality-mini-cards {
     justify-content: center;
   }
+
+  .q-item h4{
+    text-align: start;
+  }
 }
 
 /* SMALL MOBILE */
@@ -1778,6 +1782,13 @@
 
   .franchise {
     padding-bottom: 60px;
+  }
+
+  .feature h4{
+    font-size: 13px;
+  }
+  .feature h4, .feature p{
+    text-align: start;
   }
 }
 
