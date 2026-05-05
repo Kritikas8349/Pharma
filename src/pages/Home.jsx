@@ -525,8 +525,7 @@ const Home = () => {
                         <span className="f-tag">PARTNER WITH US</span>
 
                         <h2>
-                            Franchise (PCD) <br />
-                            <span>Opportunity</span>
+                            Franchise (PCD) Opportunity
                         </h2>
 
                         <p className="desc">

@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import "./Product.css";
 
+import refanoyImg from "../assets/refanoy400.png";
+import DrotajoyImg from "../assets/Drotajoy.png";
+import DrotajoyaImg from "../assets/Drotajoy-a.png";
+import lamjoyImg from "../assets/lamjoy.png";
+import novaflowImg from "../assets/Novaflow.png";
+import noyImg from "../assets/noy.png";
+import mebenovaImg from "../assets/mebenova.png"
+
 const productsData = [
   {
     id: 1,
     name: "Novaflow Susp.",
-    image: "/images/novaflow.png",
+    image: novaflowImg,
     category: "Gastrointestinal",
     composition: "Liquid Paraffin + Milk of Magnesia + Sodium Picosulfate",
     type: "Suspension",
-    price: "₹120.00",
     pack: "200 ml Suspension",
+    dosage: "10–15 ml at bedtime",
     description: "Relief from constipation and bowel issues.",
     benefits: [
       "Improves bowel movement",
@@ -21,12 +29,12 @@ const productsData = [
   {
     id: 2,
     name: "Sucronoy-O",
-    image: "/images/sucronoy.png",
+    image: noyImg,
     category: "Gastrointestinal",
     composition: "Sucralfate + Oxetacaine",
     type: "Suspension",
-    price: "₹145.00",
     pack: "100 ml Suspension",
+    dosage: "2–3 times daily before meals",
     description: "Effective for acidity and ulcers.",
     benefits: [
       "Reduces acidity",
@@ -37,12 +45,12 @@ const productsData = [
   {
     id: 3,
     name: "Refanoy 400",
-    image: "/assets/refanoy400.png",
+    image: refanoyImg,
     category: "Gastrointestinal",
     composition: "Rifaximin 400 mg",
     type: "Tablet",
-    price: "₹320.00",
     pack: "10 Tablets",
+    dosage: "1 tablet twice daily",
     description: "Antibiotic for gut infections.",
     benefits: [
       "Treats IBS",
@@ -53,12 +61,12 @@ const productsData = [
   {
     id: 4,
     name: "Mebenova-X",
-    image: "/images/mebenova.png",
+    image: mebenovaImg,
     category: "Gastrointestinal",
     composition: "Mebeverine + Chlordiazepoxide",
     type: "Tablet",
-    price: "₹210.00",
     pack: "10 Tablets",
+    dosage: "1 tablet twice daily before meals",
     description: "Relief from IBS and spasms.",
     benefits: [
       "Relieves abdominal pain",
@@ -69,12 +77,12 @@ const productsData = [
   {
     id: 5,
     name: "Drotojoy-M",
-    image: "/images/drotojoy-m.png",
+    image: DrotajoyImg,
     category: "Pain Management",
     composition: "Drotaverine + Mefenamic Acid",
     type: "Tablet",
-    price: "₹95.00",
     pack: "10 Tablets",
+    dosage: "1 tablet twice daily after meals",
     description: "Powerful pain relief.",
     benefits: [
       "Reduces abdominal pain",
@@ -85,17 +93,33 @@ const productsData = [
   {
     id: 6,
     name: "Drotojoy-A",
-    image: "/images/drotojoy-a.png",
+    image: DrotajoyaImg,
     category: "Pain Management",
     composition: "Drotaverine + Aceclofenac",
     type: "Tablet",
-    price: "₹110.00",
     pack: "10 Tablets",
+    dosage: "1 tablet twice daily after meals",
     description: "Relief from muscle and joint pain.",
     benefits: [
       "Anti-inflammatory",
       "Relieves spasms",
       "Long lasting effect"
+    ]
+  },
+  {
+    id: 10,
+    name: "Lamjoy-GN",
+    image: lamjoyImg,
+    category: "Wellness",
+    composition: "L-Theanine + Magnesium + Melatonin",
+    type: "Tablet",
+    pack: "10 Tablets",
+    dosage: "1 tablet at bedtime",
+    description: "Supports relaxation and sleep.",
+    benefits: [
+      "Improves sleep quality",
+      "Reduces stress",
+      "Calms mind"
     ]
   },
   {
@@ -105,8 +129,8 @@ const productsData = [
     category: "Cardio & Diabetic",
     composition: "Bisoprolol 5 mg",
     type: "Tablet",
-    price: "₹180.00",
     pack: "10 Tablets",
+    dosage: "1 tablet once daily",
     description: "For blood pressure control.",
     benefits: [
       "Controls hypertension",
@@ -121,8 +145,8 @@ const productsData = [
     category: "Cardio & Diabetic",
     composition: "Gliclazide 30 mg",
     type: "Tablet",
-    price: "₹150.00",
     pack: "10 Tablets",
+    dosage: "1 tablet once daily with breakfast",
     description: "Controls blood sugar levels.",
     benefits: [
       "Regulates glucose",
@@ -137,29 +161,13 @@ const productsData = [
     category: "Cardio & Diabetic",
     composition: "Gliclazide + Metformin",
     type: "Tablet",
-    price: "₹220.00",
     pack: "10 Tablets",
+    dosage: "1 tablet twice daily with meals",
     description: "Advanced diabetes management.",
     benefits: [
       "Dual action control",
       "Improves insulin response",
       "Reduces sugar spikes"
-    ]
-  },
-  {
-    id: 10,
-    name: "Lamjoy-GN",
-    image: "/images/lamjoy.png",
-    category: "Wellness",
-    composition: "L-Theanine + Magnesium + Melatonin",
-    type: "Tablet",
-    price: "₹250.00",
-    pack: "10 Tablets",
-    description: "Supports relaxation and sleep.",
-    benefits: [
-      "Improves sleep quality",
-      "Reduces stress",
-      "Calms mind"
     ]
   },
   {
@@ -169,8 +177,8 @@ const productsData = [
     category: "Wellness",
     composition: "Lycopene + Omega 3 + Vitamins",
     type: "Capsule",
-    price: "₹300.00",
     pack: "10 Capsules",
+    dosage: "1 capsule once daily after meals",
     description: "Supports heart and immunity.",
     benefits: [
       "Boosts immunity",
@@ -180,49 +188,60 @@ const productsData = [
   }
 ];
 
-const categories = [
-  "All",
-  "Gastrointestinal",
-  "Pain Management",
-  "Cardio & Diabetic",
-  "Wellness"
-];
+const categories = ["All", "Gastrointestinal", "Pain Management", "Cardio & Diabetic", "Wellness"];
+
+const types = ["All", "Tablet", "Capsule", "Suspension"];
 
 export default function Product() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedType, setSelectedType] = useState("All");
 
   const filteredProducts = productsData.filter((product) => {
     return (
-      (selectedCategory === "All" ||
-        product.category === selectedCategory) &&
+      (selectedCategory === "All" || product.category === selectedCategory) &&
+      (selectedType === "All" || product.type === selectedType) &&
       product.name.toLowerCase().includes(search.toLowerCase())
     );
   });
 
+
   return (
-    <div className="product-page">
+    <div className="product-page-p">
 
       {/* Sidebar */}
-      <aside className="sidebar">
+      <aside className="sidebar-p">
         <h2>Categories</h2>
+
         {categories.map((cat) => (
           <button
             key={cat}
-            className={selectedCategory === cat ? "active" : ""}
+            className={selectedCategory === cat ? "active-p" : ""}
             onClick={() => setSelectedCategory(cat)}
           >
             {cat}
           </button>
         ))}
+
+        <h2 style={{ marginTop: "20px" }}>Type</h2>
+
+        {types.map((type) => (
+          <button
+            key={type}
+            className={selectedType === type ? "active-p" : ""}
+            onClick={() => setSelectedType(type)}
+          >
+            {type}
+          </button>
+        ))}
       </aside>
 
       {/* Main */}
-      <div className="main-content">
+      <div className="main-content-p">
 
         {/* Search */}
-        <div className="top-bar">
+        <div className="top-bar-p">
           <input
             type="text"
             placeholder="Search medicines..."
@@ -232,74 +251,93 @@ export default function Product() {
         </div>
 
         {/* Grid */}
-        <div className="grid">
+        <div className="grid-p">
           {filteredProducts.map((product) => (
-            <div className="card" key={product.id}>
+            <div className="card-p" key={product.id}>
 
               {/* IMAGE */}
-              <div className="card-img">
+              <div className="card-img-p">
                 <img src={product.image} alt={product.name} />
               </div>
 
-              {/* NAME */}
-              <h3>{product.name}</h3>
+              {/* BODY */}
+              <div className="card-body-p">
+                <h3>{product.name}</h3>
+                <p className="pack-p">{product.pack}</p>
+                <p className="price-p">{product.price}</p>
+                <p className="desc-p">{product.description}</p>
 
-              {/* PACK */}
-              <p className="pack">{product.pack}</p>
+                <ul className="benefits-p">
+                  {product.benefits?.slice(0, 2).map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
 
-              {/* PRICE */}
-              <p className="price">{product.price}</p>
-
-              {/* DESC */}
-              <p className="desc">{product.description}</p>
-
-              {/* BENEFITS */}
-              <ul className="benefits">
-                {product.benefits?.slice(0, 2).map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
-
-              {/* CTA */}
-              <span
-                className="view-btn"
-                onClick={() => setSelectedProduct(product)}
-              >
-                View Details →
-              </span>
+                <button
+                  className="view-btn-p"
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  View Details
+                </button>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* MODAL */}
+      {/* POPUP */}
       {selectedProduct && (
-        <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="modal-overlay-p"
+          onClick={() => setSelectedProduct(null)}
+        >
+          <div
+            className="modal-card-p modal-new-p"
+            onClick={(e) => e.stopPropagation()}
+          >
 
-            <img
-              src={selectedProduct.image}
-              alt={selectedProduct.name}
-              className="modal-img"
-            />
+            {/* CLOSE BUTTON */}
+            <span
+              className="modal-close-p"
+              onClick={() => setSelectedProduct(null)}
+            >
+              ×
+            </span>
 
-            <h2>{selectedProduct.name}</h2>
-            <p className="price">{selectedProduct.price}</p>
-
-            <div className="modal-info">
-              <p><strong>Category:</strong> {selectedProduct.category}</p>
-              <p><strong>Type:</strong> {selectedProduct.type}</p>
-              <p><strong>Composition:</strong> {selectedProduct.composition}</p>
-              <p>{selectedProduct.description}</p>
+            {/* IMAGE */}
+            <div className="modal-top-p">
+              <img
+                src={selectedProduct.image}
+                alt={selectedProduct.name}
+              />
             </div>
 
-            <ul className="benefits">
-              {selectedProduct.benefits?.map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
-            </ul>
+            {/* TITLE */}
+            <h2 className="modal-title-p">
+              {selectedProduct.name}
+            </h2>
 
-            <button onClick={() => setSelectedProduct(null)}>Close</button>
+            <p className="modal-subtitle-p">
+              {selectedProduct.description}
+            </p>
+
+            {/* INFO BOX */}
+            <div className="modal-info-box-p">
+              <ul>
+                <li>{selectedProduct.composition}</li>
+                <li>
+                  <strong>Dosage:</strong> {selectedProduct.dosage}
+                </li>
+                <li><strong>Pack Size:</strong> {selectedProduct.pack}</li>
+                <li>WHO-GMP Certified</li>
+              </ul>
+            </div>
+
+            {/* CTA BUTTON */}
+            <button className="modal-cta-p">
+              Contact for Details
+            </button>
+
           </div>
         </div>
       )}

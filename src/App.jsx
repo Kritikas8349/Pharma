@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
 import Home from './pages/Home';
 import Product from './pages/Product';
+import Contact from './pages/Contact'
 
 function App() {
 
@@ -16,10 +18,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/products" element={<Product />} />
         {/* <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />}/>
-        <Route path="/contact" element={<Contact />}/> */}
+        <Route path="/about" element={<About />}/> */}
+        <Route path="/contact" element={<Contact />}/>
         
       </Routes>
       <Footer/>

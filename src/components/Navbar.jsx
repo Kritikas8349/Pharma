@@ -1,45 +1,68 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../assets/logo_novajoy.png";
 
 const Navbar = () => {
-
-  
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
-  const navRef = useRef(); // 👈 for outside click
+  const navRef = useRef();
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
-    
     setMenuOpen((prev) => !prev);
   };
 
+  // 🔥 HYBRID NAVIGATION (SCROLL + ROUTING)
   const handleLinkClick = (item) => {
     setActive(item);
     setMenuOpen(false);
-  
-    // HOME scroll top
-    if (item === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // 👉 ROUTES
+    if (item === "products") {
+      navigate("/products");
       return;
     }
-  
-    // SAFE SCROLL
-    const section = document.getElementById(item);
-  
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+
+    if (item === "contact") {
+      navigate("/contact");
+      return;
+    }
+
+    // 👉 IF NOT ON HOME → GO HOME THEN SCROLL
+    if (location.pathname !== "/") {
+      navigate("/");
+
+      setTimeout(() => {
+        if (item === "home") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          const section = document.getElementById(item);
+          section?.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+
+      return;
+    }
+
+    // 👉 NORMAL SCROLL (HOME PAGE)
+    if (item === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const section = document.getElementById(item);
+      section?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  // ✅ SCROLL + AUTO CLOSE
+  // ✅ SCROLL EFFECT + AUTO CLOSE
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      // close menu on scroll
       if (menuOpen) {
         setMenuOpen(false);
       }
@@ -58,21 +81,14 @@ const Navbar = () => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  
-
-  
-
   return (
-    <nav
-      ref={navRef}
-      className={`navbar ${scrolled ? "scrolled" : ""}`}
-    >
+    <nav ref={navRef} className={`navbar ${scrolled ? "scrolled" : ""}`}>
+
       {/* LOGO */}
-      <div className="logo">
+      <div className="logo" onClick={() => navigate("/")}>
         <img src={logo} alt="logo" />
       </div>
 
@@ -81,7 +97,13 @@ const Navbar = () => {
         {["home", "about", "products", "contact"].map((item) => (
           <li
             key={item}
-            className={active === item ? "active" : ""}
+            className={
+              (location.pathname === "/products " && item === "products") ||
+              (location.pathname === "/contact" && item === "contact") ||
+              (location.pathname === "/" && active === item)
+                ? "active"
+                : ""
+            }
             onClick={() => handleLinkClick(item)}
           >
             {item.charAt(0).toUpperCase() + item.slice(1)}
@@ -91,7 +113,9 @@ const Navbar = () => {
 
       {/* CTA */}
       <div className="cta">
-        <button>Get in Touch</button>
+        <button onClick={() => navigate("/contact")}>
+          Get in Touch
+        </button>
       </div>
 
       {/* HAMBURGER */}
@@ -103,6 +127,7 @@ const Navbar = () => {
         <span></span>
         <span></span>
       </div>
+
     </nav>
   );
 };
