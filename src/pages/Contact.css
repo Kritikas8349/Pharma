@@ -1,7 +1,7 @@
 /* ================= GLOBAL ================= */
 .contact {
     background: #f9fbfa;
-    padding: 90px 0px 20px; /* side padding added */
+    padding: 90px 0px 0px; /* side padding added */
     font-family: "Poppins", sans-serif;
   }
   
@@ -62,7 +62,7 @@
     width: 100%;
     padding: 14px 16px;
     border-radius: 12px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #6ba085;
     font-size: 14px;
     background: #f9fafb;
     outline: none;
@@ -170,7 +170,7 @@
   /* ================= FEATURES ================= */
   .features {
     width: 100%;
-    margin: 20px auto;
+    margin: 20px auto 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
@@ -186,8 +186,11 @@
   }
   
   .feature svg {
-    font-size: 26px;
+    font-size: 34px;
     color: #1e7f4f;
+    background-color: #b3ecd2;
+    padding: 4px;
+    border-radius: 4px;
   }
   
   .feature h4 {

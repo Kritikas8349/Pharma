@@ -130,6 +130,32 @@
   .hamburger.open span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
   }
+
+  
+  .mobile-cta {
+    display: none;
+  }
+  
+  .mobile-cta button {
+    width: 100%;
+    padding: 10px 14px;
+    background: #0c8f4f;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-top: 10px;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .cta {
+      display: none; /* hide desktop button */
+    }
+  
+    .mobile-cta {
+      display: block; /* show in hamburger */
+    }
+  }
   
   /* ================= MOBILE ================= */
   @media (max-width: 768px) {

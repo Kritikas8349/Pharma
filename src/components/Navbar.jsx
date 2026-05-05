@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
+import GetInTouch from "../components/GetInTouch";
+
 import logo from "../assets/logo_novajoy.png";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
@@ -85,6 +88,7 @@ const Navbar = () => {
   }, []);
 
   return (
+    <>
     <nav ref={navRef} className={`navbar ${scrolled ? "scrolled" : ""}`}>
 
       {/* LOGO */}
@@ -92,28 +96,34 @@ const Navbar = () => {
         <img src={logo} alt="logo" />
       </div>
 
-      {/* MENU */}
       <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-        {["home", "about", "products", "contact"].map((item) => (
-          <li
-            key={item}
-            className={
-              (location.pathname === "/products" && item === "products") ||
-              (location.pathname === "/contact" && item === "contact") ||
-              (location.pathname === "/" && active === item)
-                ? "active"
-                : ""
-            }
-            onClick={() => handleLinkClick(item)}
-          >
-            {item.charAt(0).toUpperCase() + item.slice(1)}
-          </li>
-        ))}
-      </ul>
+  {["home", "about", "products", "contact"].map((item) => (
+    <li
+      key={item}
+      className={
+        (location.pathname === "/product" && item === "product") ||
+        (location.pathname === "/contact" && item === "contact") ||
+        (location.pathname === "/" && active === item)
+          ? "active"
+          : ""
+      }
+      onClick={() => handleLinkClick(item)}
+    >
+      {item.charAt(0).toUpperCase() + item.slice(1)}
+    </li>
+  ))}
+
+  {/* 🔥 ADD THIS */}
+  <li className="mobile-cta">
+    <button onClick={() => setOpen(true)}>
+      Get in Touch
+    </button>
+  </li>
+</ul>
 
       {/* CTA */}
       <div className="cta">
-        <button onClick={() => navigate("/contact")}>
+        <button  onClick={() => setOpen(true)}>
           Get in Touch
         </button>
       </div>
@@ -127,8 +137,9 @@ const Navbar = () => {
         <span></span>
         <span></span>
       </div>
-
     </nav>
+    <GetInTouch isOpen={open} onClose={() => setOpen(false)} />
+    </>
   );
 };
 

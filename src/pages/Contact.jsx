@@ -5,7 +5,7 @@ import {
   FaPhoneAlt,
   FaClock,
   FaFacebookF,
-  FaTwitter,
+  FaWhatsapp,
   FaLinkedinIn,
   FaInstagram,
   FaShieldAlt,
@@ -94,8 +94,7 @@ const Contact = () => {
               <div>
                 <h3>Stay Connected</h3>
                 <div className="socials">
-                  <FaFacebookF />
-                  <FaTwitter />
+                  <FaWhatsapp />
                   <FaLinkedinIn />
                   <FaInstagram />
                 </div>

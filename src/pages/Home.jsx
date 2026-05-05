@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import "./Home.css";
+import ContactPopup from "../components/ContactPopup";
+
 import { FaUserCircle } from "react-icons/fa";
 import { FaCheckCircle, FaFlask, FaCertificate } from "react-icons/fa";
 import { GiMedicines } from "react-icons/gi";
@@ -141,6 +143,7 @@ const testimonials = [
 ];
 
 const Home = () => {
+    const [open, setOpen] = useState(false);
     const [index, setIndex] = useState(0);
     const [activeCategory, setActiveCategory] = useState("Gastroenterology");
     const [selected, setSelected] = useState(null);
@@ -179,7 +182,7 @@ const Home = () => {
 
                     <div className="home__buttons">
                         <button className="btn primary">View Our Portfolio</button>
-                        <button className="btn secondary">Partner With Us</button>
+                        <button  onClick={() => setOpen(true)} className="btn secondary">Partner With Us</button>
                     </div>
                 </div>
             </section>
@@ -299,8 +302,6 @@ const Home = () => {
                         </button>
                     ))}
                 </div>
-
-                {/* 🔷 PRODUCTS */}
                 <div className="product-container">
                     {products
                         .filter((item) => item.category === activeCategory)
@@ -587,7 +588,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <button className="cta-btn">JOIN NOW →</button>
+                    <button onClick={() => setOpen(true)} className="cta-btn">JOIN NOW →</button>
 
                 </div>
 
@@ -619,7 +620,7 @@ const Home = () => {
                 </div>
 
             </section>
-
+            <ContactPopup isOpen={open} onClose={() => setOpen(false)} />
 
         </>
     );
