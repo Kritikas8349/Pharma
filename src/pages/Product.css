@@ -8,8 +8,7 @@
 .product-page-p {
   margin-top: 50px;
   display: flex;
-  height: calc(100vh - 50px); /* ✅ fix height */
-  overflow: hidden; /* ✅ prevent full page scroll */
+  min-height: 100vh;
   background: linear-gradient(135deg, #eefcf4, #f7fffb);
 }
 
@@ -93,7 +92,10 @@
   transition: 0.3s;
 }
 
-
+.modal-cta-p:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px rgba(34,197,94,0.4);
+}
 
 /* ================= SIDEBAR ================= */
 .sidebar-p {
@@ -103,11 +105,6 @@
   padding: 25px;
   border-right: 1px solid rgba(255,255,255,0.1);
   margin-top: 20px;
-
-  position: sticky;   /* ✅ NEW */
-  top: 50px;          /* ✅ navbar ke niche fix */
-  height: calc(100vh - 50px); /* ✅ full height */
-  overflow-y: auto;   /* ✅ scroll inside sidebar if needed */
 }
 
 .sidebar-p h2 {
@@ -138,9 +135,6 @@
 .main-content-p {
   flex: 1;
   padding: 35px;
-
-  height: calc(100vh - 50px); /* ✅ match sidebar */
-  overflow-y: auto;           /* ✅ ONLY right scroll */
 }
 
 /* ================= SEARCH ================= */
@@ -154,7 +148,7 @@
   margin-top: -10px;
   background: white;
   box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  border: 1px solid rgb(142, 142, 142);
+  border: 1px solid rgb(125, 125, 125);
 }
 
 /* ================= GRID ================= */
@@ -340,7 +334,7 @@
 .modal-card-p button {
   margin-top: 15px;
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border-radius: 30px;
   border: none;
   margin-top: -10px;
@@ -367,7 +361,7 @@
 
   .sidebar-p h2 {
     width: 100%;
-    text-align: start;
+    text-align: center;
   }
 
   .sidebar-p button {
