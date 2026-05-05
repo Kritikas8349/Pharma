@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import "./Home.css";
 import ContactPopup from "../components/ContactPopup";
+import { useNavigate } from "react-router-dom";
 
 import { FaUserCircle } from "react-icons/fa";
 import { FaCheckCircle, FaFlask, FaCertificate } from "react-icons/fa";
@@ -143,6 +144,7 @@ const testimonials = [
 ];
 
 const Home = () => {
+    const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [index, setIndex] = useState(0);
     const [activeCategory, setActiveCategory] = useState("Gastroenterology");
@@ -181,8 +183,13 @@ const Home = () => {
                     </p>
 
                     <div className="home__buttons">
-                        <button className="btn primary">View Our Portfolio</button>
-                        <button  onClick={() => setOpen(true)} className="btn secondary">Partner With Us</button>
+                        <button
+                            className="btn primary"
+                            onClick={() => navigate("/products")}
+                        >
+                            View Our Portfolio
+                        </button>
+                        <button onClick={() => setOpen(true)} className="btn secondary">Partner With Us</button>
                     </div>
                 </div>
             </section>
@@ -278,7 +285,15 @@ const Home = () => {
 
                     </div>
 
-                    <button className="about-btn">Learn More</button>
+                    <button
+                        className="about-btn"
+                        onClick={() => {
+                            const section = document.getElementById("quality");
+                            section?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                    >
+                        Learn More
+                    </button>
 
                 </div>
             </section>

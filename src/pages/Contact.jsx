@@ -106,8 +106,8 @@ const Contact = () => {
       </div>
 
       {/* FEATURES */}
-      <div className="features">
-        <div className="feature">
+      <div className="c-features">
+        <div className="c-feature">
           <FaShieldAlt />
           <div>
             <h4>Reliable Support</h4>
@@ -115,7 +115,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="feature">
+        <div className="c-feature">
           <FaAward />
           <div>
             <h4>Quality Assurance</h4>
@@ -123,7 +123,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="feature">
+        <div className="c-feature">
           <FaTruck />
           <div>
             <h4>On-Time Delivery</h4>
@@ -131,7 +131,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="feature">
+        <div className="c-feature">
           <FaLeaf />
           <div>
             <h4>Customer Satisfaction</h4>
