@@ -286,7 +286,7 @@ const Home = () => {
 
 
 
-            <section className="products" id="products">
+            <section className="products">
 
                 <h2>Product Portfolio – Clinical Excellence</h2>
 
