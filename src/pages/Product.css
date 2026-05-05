@@ -1,0 +1,360 @@
+/* ================= ROOT THEME ================= */
+:root {
+  --primary: #2ecc71;
+  --primary-dark: #1b5e20;
+  --secondary: #1abc9c;
+  --bg: #f4fbf7;
+  --card-bg: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-light: #666;
+}
+
+/* ================= PAGE ================= */
+.product-page {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    margin-top: 80px;
+  width: 260px;
+  background: linear-gradient(180deg, #1b5e20, #2e7d32);
+  padding: 20px;
+  color: white;
+}
+
+.sidebar h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  background: transparent;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ================= MAIN ================= */
+.main-content {
+    margin-top: 60px;
+  flex: 1;
+  padding: 30px;
+}
+
+/* ================= SEARCH ================= */
+.top-bar {
+  margin-bottom: 25px;
+}
+
+.top-bar input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 16px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: 0.35s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* IMAGE AREA */
+.card-img {
+  width: 100%;
+  height: 130px;
+  background: #f1f5f3;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 12px;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* TEXT */
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.card .category {
+  font-size: 12px;
+  color: var(--primary-dark);
+}
+
+.card .composition {
+  font-size: 13px;
+  color: var(--text-light);
+  margin: 10px 0;
+}
+
+/* BUTTON */
+.card button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  transform: scale(1.03);
+}
+
+/* ================= MODAL ================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+/* MODAL BOX */
+.modal {
+  width: 420px;
+  max-width: 90%;
+
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+  animation: popup 0.3s ease;
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* MODAL IMAGE */
+.modal-img {
+  width: 120px;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* MODAL TEXT */
+.modal h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* INFO BOX */
+.modal-info {
+  background: #f4fbf7;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+/* CLOSE BUTTON */
+.modal button {
+  margin-top: 15px;
+  width: 100%;
+
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .product-page {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+  }
+
+  .sidebar button {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+.card-img {
+  width: 100%;
+  height: 120px;
+  background: #f4fbf7;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modal-img {
+  width: 120px;
+  display: block;
+  margin: 0 auto 10px;
+}
+/* PACK */
+.pack {
+  font-size: 12px;
+  color: #888;
+}
+
+/* PRICE */
+.price {
+  color: #2ecc71;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+/* DESC */
+.desc {
+  font-size: 13px;
+  color: #666;
+  margin: 8px 0;
+}
+
+/* BENEFITS */
+.benefits {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.benefits li {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.benefits li::before {
+  content: "✔";
+  color: #2ecc71;
+  margin-right: 6px;
+}
+
+/* VIEW DETAILS */
+.view-btn {
+  color: #2ecc71;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* CARD STYLE UPGRADE */
+.card {
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #f4fbf7);
+}
+
+/* MODAL IMPROVE */
+.modal {
+  text-align: center;
+}
+
+.modal-info {
+  text-align: left;
+}
