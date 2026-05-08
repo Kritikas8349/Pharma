@@ -210,137 +210,140 @@ export default function Product() {
   return (
     <div className="product-page-p">
 
-      {/* Sidebar */}
-      <aside className="sidebar-p">
-        <h2>Categories</h2>
 
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            className={selectedCategory === cat ? "active-p" : ""}
-            onClick={() => setSelectedCategory(cat)}
-          >
-            {cat}
-          </button>
-        ))}
+        {/* --------------------------------Sidebar--------------------------------- */}
+        <aside className="sidebar-p">
+          <h2>Categories</h2>
 
-        <h2 style={{ marginTop: "20px" }}>Type</h2>
-
-        {types.map((type) => (
-          <button
-            key={type}
-            className={selectedType === type ? "active-p" : ""}
-            onClick={() => setSelectedType(type)}
-          >
-            {type}
-          </button>
-        ))}
-      </aside>
-
-      {/* Main */}
-      <div className="main-content-p">
-
-        {/* Search */}
-        <div className="top-bar-p">
-          <input
-            type="text"
-            placeholder="Search medicines..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-
-        {/* Grid */}
-        <div className="grid-p">
-          {filteredProducts.map((product) => (
-            <div className="card-p" key={product.id}>
-
-              {/* IMAGE */}
-              <div className="card-img-p">
-                <img src={product.image} alt={product.name} />
-              </div>
-
-              {/* BODY */}
-              <div className="card-body-p">
-                <h3>{product.name}</h3>
-                <p className="pack-p">{product.pack}</p>
-                <p className="price-p">{product.price}</p>
-                <p className="desc-p">{product.description}</p>
-
-                <ul className="benefits-p">
-                  {product.benefits?.slice(0, 2).map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-
-                <button
-                  className="view-btn-p"
-                  onClick={() => setSelectedProduct(product)}
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* POPUP */}
-      {selectedProduct && (
-        <div
-          className="modal-overlay-p"
-          onClick={() => setSelectedProduct(null)}
-        >
-          <div
-            className="modal-card-p modal-new-p"
-            onClick={(e) => e.stopPropagation()}
-          >
-
-            {/* CLOSE BUTTON */}
-            <span
-              className="modal-close-p"
-              onClick={() => setSelectedProduct(null)}
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={selectedCategory === cat ? "active-p" : ""}
+              onClick={() => setSelectedCategory(cat)}
             >
-              ×
-            </span>
-
-            {/* IMAGE */}
-            <div className="modal-top-p">
-              <img
-                src={selectedProduct.image}
-                alt={selectedProduct.name}
-              />
-            </div>
-
-            {/* TITLE */}
-            <h2 className="modal-title-p">
-              {selectedProduct.name}
-            </h2>
-
-            <p className="modal-subtitle-p">
-              {selectedProduct.description}
-            </p>
-
-            {/* INFO BOX */}
-            <div className="modal-info-box-p">
-              <ul>
-                <li>{selectedProduct.composition}</li>
-                <li>
-                  <strong>Dosage:</strong> {selectedProduct.dosage}
-                </li>
-                <li><strong>Pack Size:</strong> {selectedProduct.pack}</li>
-                <li>WHO-GMP Certified</li>
-              </ul>
-            </div>
-
-            {/* CTA BUTTON */}
-            <button className="modal-cta-p">
-              Contact for Details
+              {cat}
             </button>
+          ))}
 
+          <h2 style={{ marginTop: "20px" }}>Type</h2>
+
+          {types.map((type) => (
+            <button
+              key={type}
+              className={selectedType === type ? "active-p" : ""}
+              onClick={() => setSelectedType(type)}
+            >
+              {type}
+            </button>
+          ))}
+        </aside>
+
+        {/*--------------------------------- Main----------------------------------- */}
+        <div className="main-content-p">
+
+          {/* Search */}
+          <div className="top-bar-p">
+            <input
+              type="text"
+              placeholder="Search medicines..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+
+          {/* Grid */}
+          <div className="grid-p">
+            {filteredProducts.map((product) => (
+              <div className="card-p" key={product.id}>
+
+                {/* IMAGE */}
+                <div className="card-img-p">
+                  <img src={product.image} alt={product.name} />
+                </div>
+
+                {/* BODY */}
+                <div className="card-body-p">
+                  <h3>{product.name}</h3>
+                  <p className="pack-p">{product.pack}</p>
+                  <p className="price-p">{product.price}</p>
+                  <p className="desc-p">{product.description}</p>
+
+                  <ul className="benefits-p">
+                    {product.benefits?.slice(0, 2).map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+
+                  <button
+                    className="view-btn-p"
+                    onClick={() => setSelectedProduct(product)}
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      )}
+
+        {/*--------------------------------- POPUP---------------------------------- */}
+        {selectedProduct && (
+          <div
+            className="modal-overlay-p"
+            onClick={() => setSelectedProduct(null)}
+          >
+            <div
+              className="modal-card-p modal-new-p"
+              onClick={(e) => e.stopPropagation()}
+            >
+
+              {/* CLOSE BUTTON */}
+              <span
+                className="modal-close-p"
+                onClick={() => setSelectedProduct(null)}
+              >
+                ×
+              </span>
+
+              {/* IMAGE */}
+              <div className="modal-top-p">
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                />
+              </div>
+
+              {/* TITLE */}
+              <h2 className="modal-title-p">
+                {selectedProduct.name}
+              </h2>
+
+              <p className="modal-subtitle-p">
+                {selectedProduct.description}
+              </p>
+
+              {/* INFO BOX */}
+              <div className="modal-info-box-p">
+                <ul>
+                  <li>{selectedProduct.composition}</li>
+                  <li>
+                    <strong>Dosage:</strong> {selectedProduct.dosage}
+                  </li>
+                  <li><strong>Pack Size:</strong> {selectedProduct.pack}</li>
+                  <li>WHO-GMP Certified</li>
+                </ul>
+              </div>
+
+              {/* CTA BUTTON */}
+              <button className="modal-cta-p">
+                Contact for Details
+              </button>
+
+            </div>
+          </div>
+        )}
+
+
     </div>
   );
 }

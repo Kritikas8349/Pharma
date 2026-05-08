@@ -19,10 +19,16 @@ import banner2 from "../assets/banner2.png";
 import banner3 from "../assets/banner3.png";
 
 import about from "../assets/about.png";
-
 import lab from "../assets/lab.jpg";
-
 import pharmaImg from "../assets/franchise.png";
+
+
+import novaflowImg from "../assets/Novaflow.png";
+import noyImg from "../assets/noy.png";
+import refanoyImg from "../assets/refanoy400.png";
+import DrotajoyImg from "../assets/Drotajoy.png";
+import DrotajoyaImg from "../assets/Drotajoy-a.png";
+import lamjoyImg from "../assets/lamjoy.png";
 
 
 const texts = [
@@ -60,70 +66,67 @@ const data = [
 
 
 const products = [
-    // GASTRO (4+)
     {
         id: 1,
-        category: "Gastroenterology",
-        name: "Rifaximin 550mg",
-        img: "https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=500",
-        desc: "Used in IBS and hepatic encephalopathy.",
-        composition: ["Rifaximin"],
-        dosage: "As prescribed",
-        pack: "10 tablets"
+        category: "Gastrointestinal",
+        name: "NOVAFLOW SUSP.",
+        img: novaflowImg,
+        desc: "Relief from constipation and bowel issues.",
+        composition: ["Liquid Paraffin", "Milk of Magnesia", "Sodium Picosulfate"],
+        dosage: "10–15 ml at bedtime",
+        pack: "200 ml Suspension"
     },
     {
         id: 2,
-        category: "Gastroenterology",
-        name: "Pantoprazole 40mg",
-        img: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?q=80&w=500",
-        desc: "Acidity & GERD treatment.",
-        composition: ["Pantoprazole"],
-        dosage: "Once daily",
-        pack: "10 tablets"
+        category: "Gastrointestinal",
+        name: "SUCRONOY-O",
+        img: noyImg,
+        desc: "Effective for acidity and ulcers.",
+        composition: ["Sucralfate", "Oxetacaine"],
+        dosage: "2–3 times daily before meals",
+        pack: "100 ml Suspension"
     },
     {
         id: 3,
-        category: "Gastroenterology",
-        name: "Lactulose Syrup",
-        img: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=500",
-        desc: "Constipation relief.",
-        composition: ["Lactulose"],
-        dosage: "As prescribed",
-        pack: "100ml"
+        category: "Gastrointestinal",
+        name: "REFANOY 400",
+        img: refanoyImg,
+        desc: "Antibiotic for gut infections.",
+        composition: ["Rifaximin 400 mg"],
+        dosage: "1 tablet twice daily",
+        pack: "10 Tablets"
     },
     {
         id: 4,
-        category: "Gastroenterology",
-        name: "Digestive Enzyme",
-        img: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=500",
-        desc: "Improves digestion.",
-        composition: ["Enzymes"],
-        dosage: "After meals",
-        pack: "60 tablets"
+        category: "Pain Management",
+        name: "DROTAJOY-M",
+        img: DrotajoyImg,
+        desc: "Powerful pain relief.",
+        composition: ["Drotaverine", "Mefenamic Acid"],
+        dosage: "1 tablet twice daily",
+        pack: "10 Tablets"
     },
-
-    // ADD SAME FOR OTHER CATEGORIES 👇
     {
         id: 5,
-        category: "Anti-Infectives",
-        name: "Amoxicillin 500mg",
-        img: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?q=80&w=500",
-        desc: "Broad-spectrum antibiotic.",
-        composition: ["Amoxicillin"],
-        dosage: "Twice daily",
-        pack: "10 capsules"
+        category: "Pain Management",
+        name: "DROTAJOY-A",
+        img: DrotajoyaImg,
+        desc: "Relief from muscle and joint pain.",
+        composition: ["Drotaverine", "Aceclofenac"],
+        dosage: "1 tablet twice daily",
+        pack: "10 Tablets"
     },
-
     {
         id: 6,
-        category: "Anti-Infectives",
-        name: "Azithromycin",
-        img: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=500",
-        desc: "Infection treatment.",
-        composition: ["Azithromycin"],
-        dosage: "Once daily",
-        pack: "3 tablets"
+        category: "Wellness",
+        name: "LAMJOY-GN",
+        img: lamjoyImg,
+        desc: "Supports relaxation and sleep.",
+        composition: ["L-Theanine", "Magnesium", "Melatonin"],
+        dosage: "1 tablet at bedtime",
+        pack: "10 Tablets"
     }
+    
 ];
 
 
@@ -182,7 +185,7 @@ const Home = () => {
 
                     <div className="home__buttons">
                         <button className="btn primary">View Our Portfolio</button>
-                        <button  onClick={() => setOpen(true)} className="btn secondary">Partner With Us</button>
+                        <button onClick={() => setOpen(true)} className="btn secondary">Partner With Us</button>
                     </div>
                 </div>
             </section>
@@ -292,7 +295,7 @@ const Home = () => {
 
                 {/* 🔷 CATEGORY TABS */}
                 <div className="category-tabs">
-                    {["Gastroenterology", "Anti-Infectives", "Steroids", "Nutraceuticals"].map((cat) => (
+                    {["Gastrointestinal", "Pain Management", "Cardio & Diabetic", "Wellness"].map((cat) => (
                         <button
                             key={cat}
                             className={activeCategory === cat ? "active" : ""}
