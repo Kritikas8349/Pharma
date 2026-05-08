@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from "./components/ScrollToTop";
 
 import Home from './pages/Home';
 import Product from './pages/Product';
-import Contact from './pages/Contact'
+import Contact from './pages/Contact';
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
   return (
     <>
        <BrowserRouter>
-      <Navbar />
+       <ScrollToTop/>
+       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />

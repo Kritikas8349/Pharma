@@ -232,7 +232,6 @@ const Home = () => {
 
 
             <section className="about" id="about">
-
                 {/* LEFT */}
                 <div className="about-left">
                     <img src={about} alt="Novajoy Remedies" />
