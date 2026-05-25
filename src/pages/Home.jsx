@@ -600,7 +600,7 @@ const Home = () => {
             </section>
 
 
-            <section className="testimonials">
+            <section className="testimonials" id="testimonials">
 
                 <h2>Our Happy Customers!</h2>
 
