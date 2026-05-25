@@ -15,9 +15,9 @@ import deal2 from "../assets/deal2.png";
 import deal3 from "../assets/deal3.png";
 import deal4 from "../assets/deal4.png";
 
-import banner1 from "../assets/banner1.png";
-import banner2 from "../assets/banner2.png";
-import banner3 from "../assets/banner3.png";
+import banner1 from "../assets/novaflow-banner.png";
+import banner2 from "../assets/rafnoy-banner.png";
+import banner3 from "../assets/Drota-banner.png";
 
 import about from "../assets/about.png";
 import lab from "../assets/lab.jpg";
@@ -127,7 +127,7 @@ const products = [
         dosage: "1 tablet at bedtime",
         pack: "10 Tablets"
     }
-    
+
 ];
 
 
@@ -150,7 +150,7 @@ const Home = () => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [index, setIndex] = useState(0);
-    const [activeCategory, setActiveCategory] = useState("Gastroenterology");
+    const [activeCategory, setActiveCategory] = useState("Gastrointestinal");
     const [selected, setSelected] = useState(null);
 
     useEffect(() => {
@@ -383,17 +383,6 @@ const Home = () => {
                 <div className="banner-card large">
                     <img src={banner1} alt="banner" />
 
-                    <div className="overlay">
-                        <span className="tagline">Premium Healthcare</span>
-
-                        <h2>Vitamins & Supplements</h2>
-
-                        <p>
-                            Advanced formulations designed to support immunity and daily wellness.
-                        </p>
-
-                        <button>Buy Now</button>
-                    </div>
                 </div>
 
                 {/* RIGHT SIDE */}
@@ -402,29 +391,12 @@ const Home = () => {
                     <div className="banner-card small">
                         <img src={banner2} alt="banner" />
 
-                        <div className="overlay">
-                            <span className="tagline">Heart Care</span>
-
-                            <h3>Carca 12.5</h3>
-
-                            <p>Supports healthy blood pressure levels.</p>
-
-                            <button>Buy Now</button>
-                        </div>
                     </div>
 
                     <div className="banner-card small">
                         <img src={banner3} alt="banner" />
 
-                        <div className="overlay">
-                            <span className="tagline">Daily Wellness</span>
-
-                            <h3>Life Extension Body</h3>
-
-                            <p>Complete nutritional support for your body.</p>
-
-                            <button>Buy Now</button>
-                        </div>
+                        
                     </div>
 
                 </div>
@@ -633,6 +605,8 @@ const Home = () => {
                 </div>
 
             </section>
+
+
             <ContactPopup isOpen={open} onClose={() => setOpen(false)} />
 
         </>
