@@ -304,7 +304,7 @@ const Home = () => {
 
                 {/* 🔷 CATEGORY TABS */}
                 <div className="category-tabs">
-                    {["Gastrointestinal", "Pain Management",  "Wellness"].map((cat) => (
+                    {["Gastrointestinal", "Pain Management", "Wellness"].map((cat) => (
                         <button
                             key={cat}
                             className={activeCategory === cat ? "active" : ""}
@@ -390,12 +390,33 @@ const Home = () => {
                     <div className="banner-card small">
                         <img src={banner2} alt="banner" />
 
+                        <div className="overlay">
+                            <span className="tagline">Daily Wellness</span>
+
+                            <h3>Refanoy 400</h3>
+
+                            <p>
+                                Antibiotic for effective gut infection relief.
+                            </p>
+
+                            <button>Buy Now</button>
+                        </div>
                     </div>
 
                     <div className="banner-card small">
                         <img src={banner3} alt="banner" />
 
-                        
+                        <div className="overlay">
+                            <span className="tagline">Bone & Joint Support</span>
+
+                            <h3>Drotajoy-A</h3>
+
+                            <p>
+                                Relief from muscle and joint pain.
+                            </p>
+
+                            <button>Buy Now</button>
+                        </div>
                     </div>
 
                 </div>
