@@ -8,9 +8,9 @@ import {
     FaMapMarkerAlt,
     FaPhoneAlt,
     FaEnvelope,
-    FaFacebookF,
-    FaTwitter,
-    FaYoutube,
+    FaWhatsapp,
+    FaLinkedin,
+    FaInstagram,
 } from "react-icons/fa";
 
 import logo1 from "../assets/logo_novajoy.png";
@@ -110,15 +110,15 @@ const Footer = () => {
                         {/* Social */}
                         <div className="footer__socials">
                             <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                                <FaFacebookF />
+                                <FaWhatsapp />
                             </a>
 
                             <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                                <FaTwitter />
+                                <FaLinkedin />
                             </a>
 
                             <a href="https://youtube.com" target="_blank" rel="noreferrer">
-                                <FaYoutube />
+                                <FaInstagram />
                             </a>
                         </div>
 
