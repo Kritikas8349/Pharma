@@ -18,7 +18,6 @@ const productsData = [
     composition: "Liquid Paraffin + Milk of Magnesia + Sodium Picosulfate",
     type: "Suspension",
     pack: "200 ml Suspension",
-    dosage: "10–15 ml at bedtime",
     description: "Relief from constipation and bowel issues.",
     benefits: [
       "Improves bowel movement",
@@ -34,7 +33,6 @@ const productsData = [
     composition: "Sucralfate + Oxetacaine",
     type: "Suspension",
     pack: "100 ml Suspension",
-    dosage: "2–3 times daily before meals",
     description: "Effective for acidity and ulcers.",
     benefits: [
       "Reduces acidity",
@@ -50,7 +48,6 @@ const productsData = [
     composition: "Rifaximin 400 mg",
     type: "Tablet",
     pack: "10 Tablets",
-    dosage: "1 tablet twice daily",
     description: "Antibiotic for gut infections.",
     benefits: [
       "Treats IBS",
@@ -66,7 +63,6 @@ const productsData = [
     composition: "Mebeverine + Chlordiazepoxide",
     type: "Tablet",
     pack: "10 Tablets",
-    dosage: "1 tablet twice daily before meals",
     description: "Relief from IBS and spasms.",
     benefits: [
       "Relieves abdominal pain",
@@ -82,7 +78,6 @@ const productsData = [
     composition: "Drotaverine + Mefenamic Acid",
     type: "Tablet",
     pack: "10 Tablets",
-    dosage: "1 tablet twice daily after meals",
     description: "Powerful pain relief.",
     benefits: [
       "Reduces abdominal pain",
@@ -98,7 +93,6 @@ const productsData = [
     composition: "Drotaverine + Aceclofenac",
     type: "Tablet",
     pack: "10 Tablets",
-    dosage: "1 tablet twice daily after meals",
     description: "Relief from muscle and joint pain.",
     benefits: [
       "Anti-inflammatory",
@@ -114,7 +108,6 @@ const productsData = [
     composition: "L-Theanine + Magnesium + Melatonin",
     type: "Tablet",
     pack: "10 Tablets",
-    dosage: "1 tablet at bedtime",
     description: "Supports relaxation and sleep.",
     benefits: [
       "Improves sleep quality",
@@ -130,7 +123,6 @@ const productsData = [
     composition: "Bisoprolol 5 mg",
     type: "Tablet",
     pack: "10 Tablets",
-    dosage: "1 tablet once daily",
     description: "For blood pressure control.",
     benefits: [
       "Controls hypertension",
@@ -146,7 +138,6 @@ const productsData = [
     composition: "Gliclazide 30 mg",
     type: "Tablet",
     pack: "10 Tablets",
-    dosage: "1 tablet once daily with breakfast",
     description: "Controls blood sugar levels.",
     benefits: [
       "Regulates glucose",
@@ -162,7 +153,6 @@ const productsData = [
     composition: "Gliclazide + Metformin",
     type: "Tablet",
     pack: "10 Tablets",
-    dosage: "1 tablet twice daily with meals",
     description: "Advanced diabetes management.",
     benefits: [
       "Dual action control",
@@ -178,7 +168,6 @@ const productsData = [
     composition: "Lycopene + Omega 3 + Vitamins",
     type: "Capsule",
     pack: "10 Capsules",
-    dosage: "1 capsule once daily after meals",
     description: "Supports heart and immunity.",
     benefits: [
       "Boosts immunity",
@@ -326,9 +315,6 @@ export default function Product() {
               <div className="modal-info-box-p">
                 <ul>
                   <li>{selectedProduct.composition}</li>
-                  <li>
-                    <strong>Dosage:</strong> {selectedProduct.dosage}
-                  </li>
                   <li><strong>Pack Size:</strong> {selectedProduct.pack}</li>
                   <li>WHO-GMP Certified</li>
                 </ul>
