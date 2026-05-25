@@ -304,7 +304,7 @@ const Home = () => {
 
                 {/* 🔷 CATEGORY TABS */}
                 <div className="category-tabs">
-                    {["Gastrointestinal", "Pain Management", "Cardio & Diabetic", "Wellness"].map((cat) => (
+                    {["Gastrointestinal", "Pain Management",  "Wellness"].map((cat) => (
                         <button
                             key={cat}
                             className={activeCategory === cat ? "active" : ""}
