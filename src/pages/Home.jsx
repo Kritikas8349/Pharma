@@ -58,7 +58,7 @@ const data = [
         iconImg: deal3
     },
     {
-        title: "General Medicine",
+        title: "Cardiology and Diabetic ",
         desc: "Comprehensive solutions for diverse healthcare needs.",
         bg: "green",
         iconImg: deal4
