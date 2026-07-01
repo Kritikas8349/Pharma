@@ -58,7 +58,7 @@ const data = [
         iconImg: deal3
     },
     {
-        title: "General Medicine",
+        title: "Cardiology and Diabetic ",
         desc: "Comprehensive solutions for diverse healthcare needs.",
         bg: "green",
         iconImg: deal4
@@ -596,7 +596,7 @@ const Home = () => {
             </section>
 
 
-            <section className="testimonials">
+            <section className="testimonials" id="testimonials">
 
                 <h2>Our Happy Customers!</h2>
 

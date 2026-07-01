@@ -7,7 +7,12 @@ import DrotajoyaImg from "../assets/Drotajoy-a.png";
 import lamjoyImg from "../assets/lamjoy.png";
 import novaflowImg from "../assets/Novaflow.png";
 import noyImg from "../assets/noy.png";
-import mebenovaImg from "../assets/mebenova.png"
+import mebenovaImg from "../assets/mebenova.png";
+import diaglivaxr from "../assets/diagliva-mxr.png";
+import DiaglivaXR30 from "../assets/diagliva-xr.png";
+import Lycocard from "../assets/Lycocard.png";
+import Bisonova5 from "../assets/Bisonova-5.png";
+
 
 const productsData = [
   {
@@ -118,7 +123,7 @@ const productsData = [
   {
     id: 7,
     name: "Bisonova-5",
-    image: "/images/bisonova.png",
+    image: Bisonova5,
     category: "Cardio & Diabetic",
     composition: "Bisoprolol 5 mg",
     type: "Tablet",
@@ -133,7 +138,7 @@ const productsData = [
   {
     id: 8,
     name: "Diagliva-XR 30",
-    image: "/images/diagliva-xr.png",
+    image: DiaglivaXR30,
     category: "Cardio & Diabetic",
     composition: "Gliclazide 30 mg",
     type: "Tablet",
@@ -148,7 +153,7 @@ const productsData = [
   {
     id: 9,
     name: "Diagliva-MXR 30/500",
-    image: "/images/diagliva-mxr.png",
+    image: diaglivaxr,
     category: "Cardio & Diabetic",
     composition: "Gliclazide + Metformin",
     type: "Tablet",
@@ -163,7 +168,7 @@ const productsData = [
   {
     id: 11,
     name: "Lycocard Cap.",
-    image: "/images/lycocard.png",
+    image: Lycocard,
     category: "Wellness",
     composition: "Lycopene + Omega 3 + Vitamins",
     type: "Capsule",

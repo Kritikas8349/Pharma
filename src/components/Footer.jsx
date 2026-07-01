@@ -66,9 +66,14 @@ const Footer = () => {
                         <h4>Quick Links</h4>
                         <ul>
                             <li onClick={() => window.location.href = "/contact"}>Contact Us</li>
-                            <li onClick={() => window.location.href = "/faq"}>FAQs</li>
-                            <li onClick={() => window.location.href = "/pricing"}>Privacy & Policy</li>
-                            <li onClick={() => window.location.href = "/blog"}>Blog</li>
+                            <li onClick={() => {
+                                document.getElementById("testimonials")
+                                    ?.scrollIntoView({ behavior: "smooth" });
+                            }}>
+                                Testimonials
+                            </li>
+                            <li onClick={() => window.location.href = "/"}>Privacy & Policy</li>
+                            <li onClick={() => window.location.href = "/"}>Blog</li>
                         </ul>
                     </div>
 
@@ -76,10 +81,10 @@ const Footer = () => {
                     <div className="footer__col">
                         <h4>Services</h4>
                         <ul>
-                            <li onClick={() => window.location.href = "/services/seo"}>Healthcare Consultation</li>
-                            <li onClick={() => window.location.href = "/services/social-media"}>Quality Assurance</li>
-                            <li onClick={() => window.location.href = "/services/web-development"}>Bulk Orders & Distribution</li>
-                            <li onClick={() => window.location.href = "/services/branding"}>Prescription Support</li>
+                            <li onClick={() => window.location.href = "/"}>Healthcare Consultation</li>
+                            <li onClick={() => window.location.href = "/"}>Quality Assurance</li>
+                            <li onClick={() => window.location.href = "/"}>Bulk Orders & Distribution</li>
+                            <li onClick={() => window.location.href = "/"}>Prescription Support</li>
                         </ul>
                     </div>
 
