@@ -193,7 +193,6 @@ const Home = () => {
             </section>
 
 
-
             <section className="deals">
                 <h2>Our Commitment to Better Healthcare</h2>
 
@@ -226,7 +225,6 @@ const Home = () => {
                     ))}
                 </div>
             </section>
-
 
 
             <section className="about" id="about">
@@ -294,8 +292,6 @@ const Home = () => {
 
                 </div>
             </section>
-
-
 
 
             <section className="products">
@@ -375,7 +371,6 @@ const Home = () => {
             </section>
 
 
-
             <section className="banner">
 
                 {/* LEFT BIG CARD */}
@@ -421,6 +416,7 @@ const Home = () => {
 
                 </div>
             </section>
+
 
             <section className="quality" id="quality">
 

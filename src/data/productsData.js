@@ -7,12 +7,16 @@ import lamjoyImg from "../assets/lamjoy.png";
 import novaflowImg from "../assets/Novaflow.png";
 import noyImg from "../assets/noy.png";
 import mebenovaImg from "../assets/mebenova.png";
+import bisonovaImg from "../assets/Bisonova-5.png";
+import diaglivaImg from "../assets/diagliva-mxr.png";
+import diaglivaxrImg from "../assets/diagliva-xr.png";
+import lycocardImg from "../assets/Lycocard.png";
 
 export const productsData = [
   {
     id: 1,
     slug: "novaflow-susp",
-    name: "Novaflow Susp.",
+    name: "Novaflow Suspension",
     image: novaflowImg,
     category: "Gastrointestinal",
     composition: "Liquid Paraffin + Milk of Magnesia + Sodium Picosulfate",
@@ -115,7 +119,7 @@ export const productsData = [
     id: 7,
     slug: "bisonova-5",
     name: "Bisonova-5",
-    image: "/images/bisonova.png",
+    image: bisonovaImg,
     category: "Cardio & Diabetic",
     composition: "Bisoprolol 5 mg",
     type: "Tablet",
@@ -132,7 +136,7 @@ export const productsData = [
     id: 8,
     slug: "diagliva-xr-30",
     name: "Diagliva-XR 30",
-    image: "/images/diagliva-xr.png",
+    image: diaglivaImg,
     category: "Cardio & Diabetic",
     composition: "Gliclazide 30 mg",
     type: "Tablet",
@@ -149,7 +153,7 @@ export const productsData = [
     id: 9,
     slug: "diagliva-mxr-30-500",
     name: "Diagliva-MXR 30/500",
-    image: "/images/diagliva-mxr.png",
+    image: diaglivaxrImg,
     category: "Cardio & Diabetic",
     composition: "Gliclazide + Metformin",
     type: "Tablet",
@@ -182,8 +186,8 @@ export const productsData = [
   {
     id: 11,
     slug: "lycocard-cap",
-    name: "Lycocard Cap.",
-    image: "/images/lycocard.png",
+    name: "Lycocard Capsule",
+    image: lycocardImg,
     category: "Wellness",
     composition: "Lycopene + Omega 3 + Vitamins",
     type: "Capsule",
