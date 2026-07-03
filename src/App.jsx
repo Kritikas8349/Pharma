@@ -8,26 +8,29 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from './pages/Home';
 import Product from './pages/Product';
 import Contact from './pages/Contact';
+import ProductDetails from "./pages/ProductDetails";
+
 
 function App() {
 
 
   return (
     <>
-       <BrowserRouter>
-       <ScrollToTop/>
-       <Navbar />
+      <BrowserRouter>
+        <ScrollToTop />
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Product />} />
-        {/* <Route path="/services" element={<Services />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Product />} />
+          <Route path="/products/:slug" element={<Product />} />
+          {/* <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />}/> */}
-        <Route path="/contact" element={<Contact />}/>
-        
-      </Routes>
-      <Footer/>
-    </BrowserRouter>
+          <Route path="/contact" element={<Contact />} />
+
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }

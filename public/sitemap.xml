@@ -22,4 +22,70 @@
     <priority>0.9</priority>
   </url>
 
+  <url>
+    <loc>https://www.novajoyremedies.com/products/novaflow-susp</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/sucronoy-o</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/refanoy-400</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/mebenova-x</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/drotojoy-m</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/drotojoy-a</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/bisonova-5</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/diagliva-xr-30</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/diagliva-mxr-30-500</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/lamjoy-gn</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://www.novajoyremedies.com/products/lycocard-cap</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
 </urlset>
